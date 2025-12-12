@@ -4,6 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const authRoutes = require('./routes/auth');
+const budgetRoutes = require('./routes/budget');
 
 const app = express();
 
@@ -16,11 +17,12 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/auth-db',
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log('MongoDB connected successfully'))
-.catch((err) => console.error('MongoDB connection error:', err));
+  .then(() => console.log('MongoDB connected successfully'))
+  .catch((err) => console.error('MongoDB connection error:', err));
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/budget', budgetRoutes);
 
 // Test route
 app.get('/', (req, res) => {

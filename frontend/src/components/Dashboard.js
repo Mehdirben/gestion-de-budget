@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { getCurrentUser, logout } from '../services/authService';
 
 const Dashboard = () => {
@@ -43,20 +43,25 @@ const Dashboard = () => {
     <div className="dashboard">
       <div className="dashboard-card">
         <h2>Dashboard</h2>
-        <p>Welcome to your dashboard!</p>
-        
+        <p>Bienvenue sur votre tableau de bord!</p>
+
         {user && (
           <div className="user-info">
-            <h3>User Information</h3>
-            <p><strong>Name:</strong> {user.name}</p>
+            <h3>Informations utilisateur</h3>
+            <p><strong>Nom:</strong> {user.name}</p>
             <p><strong>Email:</strong> {user.email}</p>
-            <p><strong>User ID:</strong> {user.id}</p>
-            <p><strong>Member Since:</strong> {new Date(user.createdAt).toLocaleDateString()}</p>
+            <p><strong>Membre depuis:</strong> {new Date(user.createdAt).toLocaleDateString('fr-FR')}</p>
           </div>
         )}
 
+        <div className="dashboard-nav">
+          <Link to="/budget" className="btn btn-budget">
+            💰 Gestion de Budget
+          </Link>
+        </div>
+
         <button onClick={handleLogout} className="btn logout-btn">
-          Logout
+          Déconnexion
         </button>
       </div>
     </div>
