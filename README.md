@@ -148,14 +148,3 @@ The frontend will run on `http://localhost:3000`
 4. Access the dashboard
 5. Click "Gestion de Budget" to manage your budget
 6. Add income and expenses, view statistics
-
-## Security Notes
-
-- Change `JWT_SECRET` in production
-- Use HTTPS in production
-- Consider adding rate limiting
-- Use environment variables for sensitive data
-
-## License
-
-MIT
